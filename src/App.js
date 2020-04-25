@@ -1,128 +1,17 @@
 import React from 'react';
-import logo from './logo.PNG';
 import './App.css';
-import Particles from 'react-particles-js';
-import  {particlesOptions} from "./particles";
-import { Link , Switch, Route } from 'react-router-dom';
-
-
-const Signin =()=>(
-  <div>
-   <div id="login">
-    <h3 className="text-center text-white pt-5">
-      Login to <span className="post_change text-white">Postit</span>
-    </h3>
-    <div className="container">
-      <div id="login-row" className="row justify-content-center align-items-center">
-        <div id="login-column" className="col-md-6">
-          <div id="login-box" className="col-md-12 form-box">
-            <form id="login-form" className="form" action="">
-              <div className="form-group form-form">
-                <input id="login-email" type="text" className="form-control"  placeholder=" Email" />
-              </div>
-              <div className="form-group">
-                <input id="login-password" type="password" className="form-control" name="password"
-                  placeholder="Password" />
-              </div>
-              <div className="form-group">
-                <label className="text-info"><span><input id="remember-me" name="remember-me"
-                      type="checkbox" /><span className="black-color remember" >Remember me</span>
-                  </span></label>
-                <Link to="/" className="text-info text-right forget-password" >Forget Password?</Link>
-                <div className="form-down">
-                <input type="submit" name="submit" id="sign-in-button" className=" tn btn-info btn-block btn-lg button "
-                     value="Sign in" /> 
-                </div>
-              </div>
-            </form>
-          </div>
-          <div className="sign">
-            <p className="text-center">
-              Are you new here?
-              <Link to="/signup" className="anchor"><span>Sign up
-                  here</span></Link>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
- 
-
-  </div>
-)
-
-
-const Signup =()=>(
-  // style="display: none;"
-  <div>
-      <div id="Registration" >
-    <h3 className="text-center text-white pt-5">
-      Create an account on <span className="post_change text-white">Postit</span>
-    </h3>
-    <div className="container">
-      <div id="login-row" className="row justify-content-center align-items-center">
-        <div id="login-column" className="col-md-6">
-          <div id="login-box" className="col-md-12 form-box">
-            <form id="login-form" className="form reg">
-              <div className="form-group">
-                <input type="text" className="form-control" name="username" placeholder="First Name" required="required" />
-              </div>
-              <div className="form-group form-form">
-                <input id="login-email" type="text" className="form-control" placeholder=" Email" />
-              </div>
-              <div className="form-group">
-                <input type="text" className="form-control" name="text" placeholder="Phone Number" required="required" />
-              </div>
-              <div className="form-group">
-                <input id="login-password" type="password" className="form-control" name="password"
-                  placeholder="Password" />
-              </div>
-              <div className="dark-colour-top">
-                <div className="form-group">
-                  <button type="submit" id="create-account-button" className="btn btn-primary btn-block btn-lg dark-colour">
-                    Create account
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
- 
-     
-  </div>
-)
+import { Switch, Route } from 'react-router-dom';
+import Signin from "./Components/Signin/Signin";
+import Signup from "./Components/Signup/Signup";
 
 
 function App() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg nav-head bg-white static-top">
-    <div className="container">
-      <Link to="/" className="navbar-brand" href="#">
-        <img src={logo} alt="logo" />
-      </Link>
-      <div className="nav-button">
-        <button className="btn change-color" type="button">
-          <Link to="/" className="anch-display">Sign in</Link>
-        </button>
-        <button className="btn change-color" type="button">
-          <Link to="/signup" className="anch-display" >Register</Link>
-        </button>
-      </div>
-    </div>
-  </nav>
-  
-  <Switch>
+   <Switch>
           <Route exact path="/" component ={Signin} />
           <Route path="/signup" component = {Signup} />
   </Switch>
-  <Particles className='particles'
-              params={particlesOptions}
-            />
     </div>
   );
 }
